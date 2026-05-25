@@ -1,15 +1,26 @@
 {
-  "name": "INDERFLY-aternos-bot",
+  "name": "aternos-afk-bot",
   "version": "1.0.0",
-  "description": "A reliable bot to keep Aternos servers 24/7 using Mineflayer",
+  "description": "24/7 Minecraft bot to keep your Aternos server online with realistic movements",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "engines": {
+    "node": "20.x"
+  },
+  "keywords": [
+    "minecraft",
+    "aternos",
+    "bot",
+    "afk",
+    "24-7",
+    "mineflayer"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "mineflayer": "^4.12.0",
     "express": "^4.18.2"
-  },
-  "author": "Slobos & Mr. Juice (re-implemented by Assistant)",
-  "license": "MIT"
+  }
 }
