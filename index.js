@@ -103,10 +103,8 @@ function startRandomWalk(bot) {
         if (!bot || !bot.entity) return;
         
         // Останавливаем текущее движение
-        Object.keys(movementState).forEach(key => {
-            if (key !== 'isWalking' && key !== 'currentDirection' && key !== 'circleAngle') {
-                bot.setControlState(movementState[key], false);
-            }
+        directions.forEach(dir => {
+            bot.setControlState(dir, false);
         });
         
         // Выбираем случайное направление
@@ -144,6 +142,8 @@ function attemptReconnect() {
 
 // ---- СОЗДАНИЕ БОТА ----
 function createBot() {
+    log.info(`Создаю бота с именем: ${botSettings.username}`);
+    
     const bot = mineflayer.createBot({
         host: server.ip,
         port: server.port,
@@ -160,7 +160,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    res.send(`<h1>🤖 Aternos AFK Bot работает!</h1><p>Бот: ${botSettings.username} на сервере ${server.ip}:${server.port}</p><p>Движения: ходьба, прыжки, вращение камерой</p>`);
+    res.send(`<h1>🤖 Aternos AFK Bot работает!</h1>
+    <p>Бот: <b>${botSettings.username}</b></p>
+    <p>Сервер: <b>${server.ip}:${server.port}</b></p>
+    <p>Версия: <b>${server.version}</b></p>
+    <p>Движения: ходьба, прыжки, вращение камерой</p>
+    <p>Статус: <b style="color: green;">ОНЛАЙН</b></p>`);
 });
 
 app.listen(PORT, () => {
@@ -169,4 +174,5 @@ app.listen(PORT, () => {
 
 // ---- ЗАПУСК БОТА ----
 log.info('Запуск Aternos AFK бота с движениями...');
+log.info(`Настройки: ${botSettings.username} -> ${server.ip}:${server.port}`);
 createBot();
