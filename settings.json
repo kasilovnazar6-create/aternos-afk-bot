@@ -1,0 +1,26 @@
+{
+  "server": {
+    "ip": "creativno.aternos.me",
+    "port": 55758,
+    "version": ""
+  },
+  "bot": {
+    "username": "INDERFIF",
+    "auth": "offline",
+    "autoAuthPassword": "chalol78"
+  },
+  "antiAFK": {
+    "enabled": true,
+    "sneakInterval": 30000,
+    "jumpInterval": 15000,
+    "lookInterval": 5000,
+    "walkEnabled": true,
+    "walkRadius": 5,
+    "walkSpeed": 3000
+  },
+  "reconnect": {
+    "enabled": true,
+    "initialDelay": 10000,
+    "maxDelay": 60000
+  }
+}
